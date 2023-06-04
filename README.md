@@ -1,6 +1,6 @@
 # dtrt-type-validate
 
-Validate that a variable is a certain data type.
+Validate that a variable is a of certain data type.
 
 ## Usage
 
