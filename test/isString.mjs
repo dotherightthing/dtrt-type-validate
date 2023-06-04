@@ -1,4 +1,4 @@
-import { isString } from '../index.mjs';
+import { isString } from '../dtrt-type-validate.mjs';
 
 QUnit.module('isString');
 

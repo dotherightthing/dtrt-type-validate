@@ -1,4 +1,4 @@
-import { validate } from '../index.mjs';
+import { validate } from '../dtrt-type-validate.mjs';
 
 QUnit.module('validate');
 

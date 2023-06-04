@@ -1,5 +1,5 @@
 /**
- * @file index.mjs
+ * @file dtrt-type-validate.mjs
  */
 
 import {
