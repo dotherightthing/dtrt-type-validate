@@ -1,0 +1,87 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:jsdoc/recommended"
+  ],
+  "globals": {
+    "QUnit": "readonly"
+  },
+  "ignorePatterns": [
+    "node_modules/"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "plugins": [
+    "jsdoc"
+  ],
+  "rules": {
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "block-spacing": [
+      "error",
+      "always"
+    ],
+    "class-methods-use-this": [
+      "off"
+    ],
+    "comma-spacing": [
+      "error"
+    ],
+    "func-names": [
+      "warn",
+      "as-needed"
+    ],
+    "import/extensions": [
+      "off"
+    ],
+    "indent": [
+      "warn",
+      2
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreUrls": true,
+        "ignoreComments": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "no-alert": [
+      "off"
+    ],
+    "no-param-reassign": [
+      "warn",
+      {
+        "props": false
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "no-unused-vars": [
+      "warn", 
+      {
+        "varsIgnorePattern": "^Dtrt"
+      }
+    ],
+    "no-unused-expressions": 0,
+    "no-use-before-define": [
+      "warn",
+      {
+        "functions": false,
+        "variables": true
+      }
+    ],
+    "valid-typeof": [
+      "off"
+    ]
+  }
+}
