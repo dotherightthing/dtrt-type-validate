@@ -1,5 +1,5 @@
 {
-  "name": "dtrt-validate",
+  "name": "dtrt-type-validate",
   "version": "1.0.0",
   "description": "Validation utilities",
   "main": "index.mjs",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dotherightthing/dtrt-validate.git"
+    "url": "git+https://github.com/dotherightthing/dtrt-type-validate.git"
   },
   "author": "dotherightthingnz@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dotherightthing/dtrt-validate/issues"
+    "url": "https://github.com/dotherightthing/dtrt-type-validate/issues"
   },
-  "homepage": "https://github.com/dotherightthing/dtrt-validate#readme",
+  "homepage": "https://github.com/dotherightthing/dtrt-type-validate#readme",
   "dependencies": {
     "dtrt-string-utils": "github:dotherightthing/dtrt-string-utils"
   }
