@@ -10,7 +10,7 @@
     "qunit": "^2.19.4"
   },
   "scripts": {
-    "lint": "npx eslint ./**/*.mjs",
+    "lint": "npx eslint ./*.mjs ./**/*.mjs",
     "test": "qunit test/*.mjs"
   },
   "repository": {
