@@ -1,4 +1,4 @@
-import { isObject } from '../dtrt-type-validate.mjs';
+import { isObject } from '../dist/dtrt-type-validate.mjs';
 
 QUnit.module('isObject');
 

@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm print "ok" && npm run lint && npm run dist
+npm run test && npm run lint && npm run dist

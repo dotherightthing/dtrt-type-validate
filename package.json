@@ -8,14 +8,12 @@
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-jsdoc": "^46.2.2",
+    "husky": "^8.0.3",
     "qunit": "^2.19.4"
-  },
-  "dependencies": {
-    "husky": "^8.0.3"
   },
   "scripts": {
     "dist": "mkdir -p 'dist' && cat ./node_modules/dtrt-string-utils/dtrt-string-utils.mjs ./src/dtrt-type-validate.mjs > ./dist/dtrt-type-validate.mjs",
-    "lint": "npx eslint ./*.mjs ./**/*.mjs",
+    "lint": "npx eslint ./**/*.mjs",
     "prepare": "husky install",
     "test": "qunit test/*.mjs"
   },

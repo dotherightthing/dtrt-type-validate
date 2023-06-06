@@ -1,4 +1,4 @@
-import { isArray } from '../dtrt-type-validate.mjs';
+import { isArray } from '../dist/dtrt-type-validate.mjs';
 
 QUnit.module('isArray');
 

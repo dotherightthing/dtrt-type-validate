@@ -1,4 +1,4 @@
-import { isBoolean } from '../dtrt-type-validate.mjs';
+import { isBoolean } from '../dist/dtrt-type-validate.mjs';
 
 QUnit.module('isBoolean');
 

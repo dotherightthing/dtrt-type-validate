@@ -8,6 +8,8 @@
     "plugin:jsdoc/recommended"
   ],
   "globals": {
+    "getIndefiniteArticle": "readonly",
+    "stringToCapitalised": "readonly",
     "QUnit": "readonly"
   },
   "ignorePatterns": [

@@ -1,4 +1,4 @@
-import { isNull } from '../dtrt-type-validate.mjs';
+import { isNull } from '../dist/dtrt-type-validate.mjs';
 
 QUnit.module('isNull');
 
