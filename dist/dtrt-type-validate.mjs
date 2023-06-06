@@ -175,6 +175,15 @@ export const isStringNumber = (value) => {
 };
 
 /**
+ * isTypeOf
+ * @summary Validate that a value is of a type
+ * @param {*} type - Expected type
+ * @param {*} value - Value to validate
+ * @returns {boolean} valid
+ */
+export const isTypeOf = (type, value) => typeof value === type;
+
+/**
  * validate
  * @summary Validate a value against a type.
  * @param {*} value - Value to validate
@@ -209,7 +218,7 @@ export const validate = (value, type, identifier, condition = true) => {
       } else if (validationMethod === 'isStringNumber') {
         valid = isStringNumber(value);
       } else {
-        throw new Error(`DtrtValidate does not support type ${type}`);
+        valid = isTypeOf(type, value);
       }
 
       if (valid) {
