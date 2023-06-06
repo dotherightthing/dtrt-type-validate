@@ -7,7 +7,7 @@
  * @summary Generate a validation error message.
  * @param {*} value - Value to validate
  * @param {Array} types - Expected type(s)
- * @param {string} identifier - Label to use in error message
+ * @param {string} identifier - Label to use in error message testing 123
  */
 export const errorMessage = (value, types, identifier) => {
   const actualType = typeof value;
