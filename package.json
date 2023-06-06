@@ -10,9 +10,13 @@
     "eslint-plugin-jsdoc": "^46.2.2",
     "qunit": "^2.19.4"
   },
+  "dependencies": {
+    "husky": "^8.0.3"
+  },
   "scripts": {
     "dist": "mkdir -p 'dist' && cat ./node_modules/dtrt-string-utils/dtrt-string-utils.mjs ./src/dtrt-type-validate.mjs > ./dist/dtrt-type-validate.mjs",
     "lint": "npx eslint ./*.mjs ./**/*.mjs",
+    "prepare": "husky install",
     "test": "qunit test/*.mjs"
   },
   "repository": {
@@ -24,8 +28,5 @@
   "bugs": {
     "url": "https://github.com/dotherightthing/dtrt-type-validate/issues"
   },
-  "homepage": "https://github.com/dotherightthing/dtrt-type-validate#readme",
-  "dependencies": {
-    "husky": "^8.0.3"
-  }
+  "homepage": "https://github.com/dotherightthing/dtrt-type-validate#readme"
 }
