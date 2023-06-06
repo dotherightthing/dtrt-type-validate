@@ -1,6 +1,6 @@
 {
   "name": "dtrt-type-validate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validation utilities",
   "main": "dist/dtrt-type-validate.mjs",
   "devDependencies": {
