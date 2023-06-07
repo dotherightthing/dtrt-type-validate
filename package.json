@@ -1,19 +1,21 @@
 {
   "name": "dtrt-type-validate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Validation utilities",
   "main": "dist/dtrt-type-validate.mjs",
   "devDependencies": {
-    "dtrt-string-utils": "github:dotherightthing/dtrt-string-utils",
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-jsdoc": "^46.2.2",
     "husky": "^8.0.3",
     "qunit": "^2.19.4"
   },
+  "dependencies": {
+    "dtrt-string-utils": "github:dotherightthing/dtrt-string-utils"
+  },
   "scripts": {
-    "dist": "mkdir -p 'dist' && cat ./node_modules/dtrt-string-utils/dtrt-string-utils.mjs ./src/dtrt-type-validate.mjs > ./dist/dtrt-type-validate.mjs",
-    "lint": "npx eslint ./**/*.mjs",
+    "dist": "./scripts/dist.sh",
+    "lint": "npx eslint ./src/*.mjs",
     "prepare": "husky install",
     "test": "qunit test/*.mjs"
   },

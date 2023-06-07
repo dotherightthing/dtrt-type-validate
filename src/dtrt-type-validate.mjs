@@ -2,6 +2,8 @@
  * @file dtrt-type-validate.mjs
  */
 
+import stringUtils from 'dtrt-string-utils/dist/dtrt-string-utils.mjs';
+
 /**
  * errorMessage
  * @summary Generate a validation error message.
@@ -9,15 +11,15 @@
  * @param {Array} types - Expected type(s)
  * @param {string} identifier - Label to use in error message testing 123
  */
-export const errorMessage = (value, types, identifier) => {
+const errorMessage = (value, types, identifier) => {
   const actualType = typeof value;
-  const actualTypeArticle = getIndefiniteArticle(actualType);
+  const actualTypeArticle = stringUtils.getIndefiniteArticle(actualType);
   const typeSeparator = ', or ';
   let typeArticle;
   let typesStr = '';
 
   types.forEach((type) => {
-    typeArticle = getIndefiniteArticle(type);
+    typeArticle = stringUtils.getIndefiniteArticle(type);
     typesStr += `${typeArticle} ${type}${typeSeparator}`;
   });
 
@@ -33,7 +35,7 @@ export const errorMessage = (value, types, identifier) => {
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isArray = (value) => (Array.isArray(value));
+const isArray = (value) => (Array.isArray(value));
 
 /**
  * isBoolean
@@ -41,7 +43,7 @@ export const isArray = (value) => (Array.isArray(value));
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isBoolean = (value) => (typeof value === 'boolean');
+const isBoolean = (value) => (typeof value === 'boolean');
 
 /**
  * isNull
@@ -49,7 +51,7 @@ export const isBoolean = (value) => (typeof value === 'boolean');
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isNull = (value) => (value === null);
+const isNull = (value) => (value === null);
 
 /**
  * isNumber
@@ -57,7 +59,7 @@ export const isNull = (value) => (value === null);
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isNumber = (value) => {
+const isNumber = (value) => {
   if (isArray(value) || isBoolean(value) || isNull(value) || isString(value)) { // eslint-disable-line no-use-before-define
     return false;
   }
@@ -71,7 +73,7 @@ export const isNumber = (value) => {
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isObject = (value) => (Object.prototype.toString.call(value) === '[object Object]');
+const isObject = (value) => (Object.prototype.toString.call(value) === '[object Object]');
 
 /**
  * isString
@@ -79,7 +81,7 @@ export const isObject = (value) => (Object.prototype.toString.call(value) === '[
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isString = (value) => (typeof value === 'string');
+const isString = (value) => (typeof value === 'string');
 
 /**
  * isString1
@@ -87,7 +89,7 @@ export const isString = (value) => (typeof value === 'string');
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isString1 = (value) => {
+const isString1 = (value) => {
   if (typeof value === 'string') {
     return (value.trim().length > 0);
   }
@@ -101,7 +103,7 @@ export const isString1 = (value) => {
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isStringNumber = (value) => {
+const isStringNumber = (value) => {
   if (!isString(value) || (value === '')) {
     return false;
   }
@@ -116,7 +118,7 @@ export const isStringNumber = (value) => {
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
-export const isTypeOf = (type, value) => typeof value === type;
+const isTypeOf = (type, value) => typeof value === type;
 
 /**
  * validate
@@ -127,14 +129,14 @@ export const isTypeOf = (type, value) => typeof value === type;
  * @param {boolean} condition - Validate if condition is true
  * @returns {*} value
  */
-export const validate = (value, type, identifier, condition = true) => {
+const validate = (value, type, identifier, condition = true) => {
   if (condition) {
     const types = type.split('|');
     let valid = false;
 
     // type can be singular (e.g. 'number') or multiple (e.g. 'number|string|boolean')
     types.every((t) => {
-      const validationMethod = `is${stringToCapitalised(t)}`;
+      const validationMethod = `is${stringUtils.stringToCapitalised(t)}`;
 
       if (validationMethod === 'isArray') {
         valid = isArray(value);
@@ -169,4 +171,18 @@ export const validate = (value, type, identifier, condition = true) => {
   }
 
   return value;
+};
+
+export default {
+  errorMessage,
+  isArray,
+  isBoolean,
+  isNull,
+  isNumber,
+  isObject,
+  isString,
+  isString1,
+  isStringNumber,
+  isTypeOf,
+  validate,
 };

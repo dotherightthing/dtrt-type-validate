@@ -1,4 +1,4 @@
-import { isNull } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isNull');
 
@@ -8,69 +8,69 @@ QUnit.module('isNull');
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    isNull([]),
+    dtrtValidate.isNull([]),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    isNull(true),
+    dtrtValidate.isNull(true),
     false,
   );
 
   assert.equal(
-    isNull(false),
+    dtrtValidate.isNull(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    isNull(null),
+    dtrtValidate.isNull(null),
     true,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    isNull(-1),
+    dtrtValidate.isNull(-1),
     false,
   );
 
   assert.equal(
-    isNull(0),
+    dtrtValidate.isNull(0),
     false,
   );
 
   assert.equal(
-    isNull(1),
+    dtrtValidate.isNull(1),
     false,
   );
 
   assert.equal(
-    isNull(2),
+    dtrtValidate.isNull(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    isNull({}),
+    dtrtValidate.isNull({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    isNull(''),
+    dtrtValidate.isNull(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    isNull('foo'),
+    dtrtValidate.isNull('foo'),
     false,
   );
 });

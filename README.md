@@ -9,9 +9,18 @@ npm install dotherightthing/dtrt-type-validate
 ```
 
 ```js
-import { validate } from 'dtrt-type-validate';
+import dtrtValidate from 'dtrt-type-validate/dist/dtrt-type-validate.mjs'; // ESM
+const dtrtValidate = require('dtrt-type-validate/dist/dtrt-type-validate.cjs'); // CommonJS
 
-const myFunc = (param) => {
-  const validObject = validate(param, 'object', 'myFunc'); // then do something with validObject
-}
+const foo = (param) => {
+  const validObject = dtrtValidate.validate(param, 'object', 'myFunc');
+  
+  // do something with validObject
+};
+
+const bar = (param) => {
+  if (dtrtValidate.isArray(param)) {
+    // do something with param which is an array
+  }
+};
 ```

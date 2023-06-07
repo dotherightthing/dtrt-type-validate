@@ -1,4 +1,4 @@
-import { isStringNumber } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isStringNumber');
 
@@ -8,91 +8,91 @@ QUnit.module('isStringNumber');
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    isStringNumber([]),
+    dtrtValidate.isStringNumber([]),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    isStringNumber(true),
+    dtrtValidate.isStringNumber(true),
     false,
   );
 
   assert.equal(
-    isStringNumber(false),
+    dtrtValidate.isStringNumber(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    isStringNumber(null),
+    dtrtValidate.isStringNumber(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    isStringNumber(-1),
+    dtrtValidate.isStringNumber(-1),
     false,
   );
 
   assert.equal(
-    isStringNumber(0),
+    dtrtValidate.isStringNumber(0),
     false,
   );
 
   assert.equal(
-    isStringNumber(1),
+    dtrtValidate.isStringNumber(1),
     false,
   );
 
   assert.equal(
-    isStringNumber(2),
+    dtrtValidate.isStringNumber(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    isStringNumber({}),
+    dtrtValidate.isStringNumber({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    isStringNumber(''),
+    dtrtValidate.isStringNumber(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    isStringNumber('foo'),
+    dtrtValidate.isStringNumber('foo'),
     false,
   );
 });
 
 QUnit.test('stringNumber', (assert) => {
   assert.equal(
-    isStringNumber('-1'),
+    dtrtValidate.isStringNumber('-1'),
     true,
   );
 
   assert.equal(
-    isStringNumber('0'),
+    dtrtValidate.isStringNumber('0'),
     true,
   );
 
   assert.equal(
-    isStringNumber('1'),
+    dtrtValidate.isStringNumber('1'),
     true,
   );
 
   assert.equal(
-    isStringNumber('2'),
+    dtrtValidate.isStringNumber('2'),
     true,
   );
 });

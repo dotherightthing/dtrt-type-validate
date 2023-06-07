@@ -1,4 +1,4 @@
-import { isBoolean } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isBoolean');
 
@@ -6,12 +6,12 @@ QUnit.module('isBoolean');
 
 QUnit.test('string boolean', (assert) => {
   assert.equal(
-    isBoolean('true'),
+    dtrtValidate.isBoolean('true'),
     false,
   );
 
   assert.equal(
-    isBoolean('false'),
+    dtrtValidate.isBoolean('false'),
     false,
   );
 });
@@ -20,69 +20,69 @@ QUnit.test('string boolean', (assert) => {
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    isBoolean([]),
+    dtrtValidate.isBoolean([]),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    isBoolean(true),
+    dtrtValidate.isBoolean(true),
     true,
   );
 
   assert.equal(
-    isBoolean(false),
+    dtrtValidate.isBoolean(false),
     true,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    isBoolean(null),
+    dtrtValidate.isBoolean(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    isBoolean(-1),
+    dtrtValidate.isBoolean(-1),
     false,
   );
 
   assert.equal(
-    isBoolean(0),
+    dtrtValidate.isBoolean(0),
     false,
   );
 
   assert.equal(
-    isBoolean(1),
+    dtrtValidate.isBoolean(1),
     false,
   );
 
   assert.equal(
-    isBoolean(2),
+    dtrtValidate.isBoolean(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    isBoolean({}),
+    dtrtValidate.isBoolean({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    isBoolean(''),
+    dtrtValidate.isBoolean(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    isBoolean('foo'),
+    dtrtValidate.isBoolean('foo'),
     false,
   );
 });

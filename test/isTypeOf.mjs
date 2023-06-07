@@ -1,4 +1,4 @@
-import { isTypeOf } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isTypeOf');
 
@@ -10,7 +10,7 @@ QUnit.test('function', (assert) => {
   const func = function () {};
 
   assert.equal(
-    isTypeOf('function', func),
+    dtrtValidate.isTypeOf('function', func),
     true,
   );
 });

@@ -1,4 +1,4 @@
-import { isArray } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isArray');
 
@@ -6,14 +6,14 @@ QUnit.module('isArray');
 
 QUnit.test('empty array', (assert) => {
   assert.equal(
-    isArray([]),
+    dtrtValidate.isArray([]),
     true,
   );
 });
 
 QUnit.test('string array', (assert) => {
   assert.equal(
-    isArray('[]'),
+    dtrtValidate.isArray('[]'),
     false,
   );
 });
@@ -22,69 +22,69 @@ QUnit.test('string array', (assert) => {
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    isArray([ 'foo' ]),
+    dtrtValidate.isArray([ 'foo' ]),
     true,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    isArray(true),
+    dtrtValidate.isArray(true),
     false,
   );
 
   assert.equal(
-    isArray(false),
+    dtrtValidate.isArray(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    isArray(null),
+    dtrtValidate.isArray(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    isArray(-1),
+    dtrtValidate.isArray(-1),
     false,
   );
 
   assert.equal(
-    isArray(0),
+    dtrtValidate.isArray(0),
     false,
   );
 
   assert.equal(
-    isArray(1),
+    dtrtValidate.isArray(1),
     false,
   );
 
   assert.equal(
-    isArray(2),
+    dtrtValidate.isArray(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    isArray({}),
+    dtrtValidate.isArray({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    isArray(''),
+    dtrtValidate.isArray(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    isArray('foo'),
+    dtrtValidate.isArray('foo'),
     false,
   );
 });

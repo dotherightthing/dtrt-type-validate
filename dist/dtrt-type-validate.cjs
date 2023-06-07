@@ -1,8 +1,8 @@
 /**
- * @file dtrt-type-validate.mjs
+ * @file dtrt-type-validate.cjs
  */
 
-import stringUtils from 'dtrt-string-utils/dist/dtrt-string-utils.mjs';
+const stringUtils = require('dtrt-string-utils/dist/dtrt-string-utils.cjs');
 
 /**
  * errorMessage
@@ -173,7 +173,7 @@ const validate = (value, type, identifier, condition = true) => {
   return value;
 };
 
-export default {
+module.exports = {
   errorMessage,
   isArray,
   isBoolean,

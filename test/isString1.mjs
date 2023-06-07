@@ -1,4 +1,4 @@
-import { isString1 } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isString1');
 
@@ -8,91 +8,91 @@ QUnit.module('isString1');
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    isString1([]),
+    dtrtValidate.isString1([]),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    isString1(true),
+    dtrtValidate.isString1(true),
     false,
   );
 
   assert.equal(
-    isString1(false),
+    dtrtValidate.isString1(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    isString1(null),
+    dtrtValidate.isString1(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    isString1(-1),
+    dtrtValidate.isString1(-1),
     false,
   );
 
   assert.equal(
-    isString1(0),
+    dtrtValidate.isString1(0),
     false,
   );
 
   assert.equal(
-    isString1(1),
+    dtrtValidate.isString1(1),
     false,
   );
 
   assert.equal(
-    isString1(2),
+    dtrtValidate.isString1(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    isString1({}),
+    dtrtValidate.isString1({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    isString1(''),
+    dtrtValidate.isString1(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    isString1('foo'),
+    dtrtValidate.isString1('foo'),
     true,
   );
 });
 
 QUnit.test('stringNumber', (assert) => {
   assert.equal(
-    isString1('-1'),
+    dtrtValidate.isString1('-1'),
     true,
   );
 
   assert.equal(
-    isString1('0'),
+    dtrtValidate.isString1('0'),
     true,
   );
 
   assert.equal(
-    isString1('1'),
+    dtrtValidate.isString1('1'),
     true,
   );
 
   assert.equal(
-    isString1('2'),
+    dtrtValidate.isString1('2'),
     true,
   );
 });

@@ -1,4 +1,4 @@
-import { isObject } from '../dist/dtrt-type-validate.mjs';
+import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isObject');
 
@@ -6,14 +6,14 @@ QUnit.module('isObject');
 
 QUnit.test('empty object', (assert) => {
   assert.equal(
-    isObject({}),
+    dtrtValidate.isObject({}),
     true,
   );
 });
 
 QUnit.test('string object', (assert) => {
   assert.equal(
-    isObject('{}'),
+    dtrtValidate.isObject('{}'),
     false,
   );
 });
@@ -22,69 +22,69 @@ QUnit.test('string object', (assert) => {
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    isObject([]),
+    dtrtValidate.isObject([]),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    isObject(true),
+    dtrtValidate.isObject(true),
     false,
   );
 
   assert.equal(
-    isObject(false),
+    dtrtValidate.isObject(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    isObject(null),
+    dtrtValidate.isObject(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    isObject(-1),
+    dtrtValidate.isObject(-1),
     false,
   );
 
   assert.equal(
-    isObject(0),
+    dtrtValidate.isObject(0),
     false,
   );
 
   assert.equal(
-    isObject(1),
+    dtrtValidate.isObject(1),
     false,
   );
 
   assert.equal(
-    isObject(2),
+    dtrtValidate.isObject(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    isObject({}),
+    dtrtValidate.isObject({}),
     true,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    isObject(''),
+    dtrtValidate.isObject(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    isObject('foo'),
+    dtrtValidate.isObject('foo'),
     false,
   );
 });
