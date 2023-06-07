@@ -15,13 +15,11 @@
 set -e
 
 mjsImportStart="export default"
-mjsImportDependencyStart="import stringUtils from '"
-mjsImportDependencyEnd=".mjs';"
+mjsImportDependency="import stringUtils from 'dtrt-string-utils'"
 mjsFileComment=".mjs"
 
 cjsImportStart="module.exports ="
-cjsImportDependencyStart="const stringUtils = require('"
-cjsImportDependencyEnd=".cjs');"
+cjsImportDependency="const stringUtils = require('dtrt-string-utils')"
 cjsFileComment=".cjs"
 
 cd $INIT_CWD \
@@ -29,6 +27,5 @@ cd $INIT_CWD \
 && cat ./src/dtrt-type-validate.mjs > dist/dtrt-type-validate.mjs \
 && cat ./src/dtrt-type-validate.mjs > dist/dtrt-type-validate.cjs \
 && sed -i '' "s/$mjsImportStart/${cjsImportStart}/g" dist/dtrt-type-validate.cjs \
-&& sed -i '' "s/$mjsImportDependencyStart/${cjsImportDependencyStart}/g" dist/dtrt-type-validate.cjs \
-&& sed -i '' "s/$mjsImportDependencyEnd/${cjsImportDependencyEnd}/g" dist/dtrt-type-validate.cjs \
+&& sed -i '' "s/$mjsImportDependency/${cjsImportDependency}/g" dist/dtrt-type-validate.cjs \
 && sed -i '' "s/$mjsFileComment/${cjsFileComment}/g" dist/dtrt-type-validate.cjs

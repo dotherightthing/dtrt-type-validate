@@ -2,7 +2,8 @@
  * @file dtrt-type-validate.cjs
  */
 
-const stringUtils = require('dtrt-string-utils/dist/dtrt-string-utils.cjs');
+// eslint-disable-next-line import/no-unresolved
+const stringUtils = require('dtrt-string-utils');
 
 /**
  * errorMessage

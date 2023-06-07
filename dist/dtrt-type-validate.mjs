@@ -2,7 +2,8 @@
  * @file dtrt-type-validate.mjs
  */
 
-import stringUtils from 'dtrt-string-utils/dist/dtrt-string-utils.mjs';
+// eslint-disable-next-line import/no-unresolved
+import stringUtils from 'dtrt-string-utils';
 
 /**
  * errorMessage

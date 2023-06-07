@@ -1,8 +1,16 @@
 {
   "name": "dtrt-type-validate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Validation utilities",
   "main": "dist/dtrt-type-validate.mjs",
+  "type": "module",
+  "exports": {
+    "import": "./dist/dtrt-type-validate.mjs",
+    "require": "./dist/dtrt-type-validate.cjs"
+  },
+  "engines": {
+    "node": ">=13.7.0"
+  },
   "devDependencies": {
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
