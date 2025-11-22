@@ -6,8 +6,7 @@
   "type": "module",
   "exports": {
     "import": "./dist/dtrt-type-validate.mjs",
-    "require": "./dist/dtrt-type-validate.cjs",
-    "default": "./dist/dtrt-type-validate-browser.mjs"
+    "require": "./dist/dtrt-type-validate.cjs"
   },
   "engines": {
     "node": ">=13.7.0"

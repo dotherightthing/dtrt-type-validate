@@ -1,4 +1,4 @@
-import dtrtValidate from '../dist/dtrt-type-validate-browser.mjs';
+import dtrtValidate from 'dtrt-type-validate';
 
 QUnit.config.fixture = '<div id="test1"></div>';
 
