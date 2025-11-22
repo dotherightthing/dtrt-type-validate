@@ -145,7 +145,7 @@ const validate = (value, type, identifier, condition = true) => {
 
     // type can be singular (e.g. 'number') or multiple (e.g. 'number|string|boolean')
     types.every((t) => {
-      const validationMethod = `is${stringUtils.stringToCapitalised(t)}`;
+      const validationMethod = (t === 'htmlelement') ? 'isHTMLElement' : `is${stringUtils.stringToCapitalised(t)}`;
 
       if (validationMethod === 'isArray') {
         valid = isArray(value);
