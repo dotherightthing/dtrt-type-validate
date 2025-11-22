@@ -6,7 +6,8 @@
   "type": "module",
   "exports": {
     "import": "./dist/dtrt-type-validate.mjs",
-    "require": "./dist/dtrt-type-validate.cjs"
+    "require": "./dist/dtrt-type-validate.cjs",
+    "default": "./dist/dtrt-type-validate-browser.mjs"
   },
   "engines": {
     "node": ">=13.7.0"
@@ -19,13 +20,15 @@
     "qunit": "^2.19.4"
   },
   "dependencies": {
-    "dtrt-string-utils": "github:dotherightthing/dtrt-string-utils"
+    "dtrt-string-utils": "github:dotherightthing/dtrt-string-utils",
+    "serve": "^14.2.5"
   },
   "scripts": {
     "dist": "./scripts/dist.sh",
     "lint": "npx eslint ./src/*.mjs",
     "prepare": "husky install",
-    "test": "qunit test/*.mjs"
+    "test": "qunit test/*.mjs",
+    "test:html": "open http://localhost:3000/testHtml/ && npx serve ."
   },
   "repository": {
     "type": "git",

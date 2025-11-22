@@ -22,10 +22,18 @@ cjsImportStart="module.exports ="
 cjsImportDependency="const stringUtils = require('dtrt-string-utils')"
 cjsFileComment=".cjs"
 
+mjsBrowserImportStart="export default"
+mjsBrowserImportDependency="import stringUtils from '..\/node_modules\/dtrt-string-utils\/dist\/dtrt-string-utils.mjs'"
+mjsBrowserFileComment=".mjs"
+
 cd $INIT_CWD \
 && mkdir -p 'dist' \
 && cat ./src/dtrt-type-validate.mjs > dist/dtrt-type-validate.mjs \
 && cat ./src/dtrt-type-validate.mjs > dist/dtrt-type-validate.cjs \
+&& cat ./src/dtrt-type-validate.mjs > dist/dtrt-type-validate-browser.mjs \
 && sed -i '' "s/$mjsImportStart/${cjsImportStart}/g" dist/dtrt-type-validate.cjs \
 && sed -i '' "s/$mjsImportDependency/${cjsImportDependency}/g" dist/dtrt-type-validate.cjs \
-&& sed -i '' "s/$mjsFileComment/${cjsFileComment}/g" dist/dtrt-type-validate.cjs
+&& sed -i '' "s/$mjsFileComment/${cjsFileComment}/g" dist/dtrt-type-validate.cjs \
+&& sed -i '' "s/$mjsImportStart/${mjsBrowserImportStart}/g" dist/dtrt-type-validate-browser.mjs \
+&& sed -i '' "s/$mjsImportDependency/${mjsBrowserImportDependency}/g" dist/dtrt-type-validate-browser.mjs \
+&& sed -i '' "s/$mjsFileComment/${mjsBrowserFileComment}/g" dist/dtrt-type-validate-browser.mjs

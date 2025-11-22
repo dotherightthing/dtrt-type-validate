@@ -3,7 +3,7 @@
  */
 
 // eslint-disable-next-line import/no-unresolved
-import stringUtils from 'dtrt-string-utils';
+import stringUtils from '../node_modules/dtrt-string-utils/dist/dtrt-string-utils.mjs';
 
 /**
  * errorMessage

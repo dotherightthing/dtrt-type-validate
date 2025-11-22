@@ -47,6 +47,14 @@ const isArray = (value) => (Array.isArray(value));
 const isBoolean = (value) => (typeof value === 'boolean');
 
 /**
+ * isHTMLElement
+ * @summary Validate that a value is an HTMLElement
+ * @param {*} value - Value to validate
+ * @returns {boolean} valid
+ */
+const isHTMLElement = (value) => (value instanceof HTMLElement);
+
+/**
  * isNull
  * @summary Validate that a value is null
  * @param {*} value - Value to validate
@@ -143,6 +151,8 @@ const validate = (value, type, identifier, condition = true) => {
         valid = isArray(value);
       } else if (validationMethod === 'isBoolean') {
         valid = isBoolean(value);
+      } else if (validationMethod === 'isHTMLElement') {
+        valid = isHTMLElement(value);
       } else if (validationMethod === 'isNull') {
         valid = isNull(value);
       } else if (validationMethod === 'isNumber') {
@@ -178,6 +188,7 @@ export default {
   errorMessage,
   isArray,
   isBoolean,
+  isHTMLElement,
   isNull,
   isNumber,
   isObject,
