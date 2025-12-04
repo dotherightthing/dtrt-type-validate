@@ -47,12 +47,39 @@ const isArray = (value) => (Array.isArray(value));
 const isBoolean = (value) => (typeof value === 'boolean');
 
 /**
+ * isHTMLCollection
+ * @summary Validate that a value is an HTMLCollection
+ * @description
+ * An HTMLCollection is returned by e.g.
+ * - getElementsByClassName()
+ * - getElementsByTagName()
+ * - getElementsByTagNameNS()
+ * - element.children
+ * @param {*} value - Value to validate
+ * @returns {boolean} valid
+ */
+const isHTMLCollection = (value) => (value instanceof HTMLCollection);
+
+/**
  * isHTMLElement
  * @summary Validate that a value is an HTMLElement
  * @param {*} value - Value to validate
  * @returns {boolean} valid
  */
 const isHTMLElement = (value) => (value instanceof HTMLElement);
+
+/**
+ * isNodeList
+ * @summary Validate that a value is a NodeList
+ * @description
+ * A NodeList is returned by e.g.
+ * - document.getElementsByName()
+ * - document.querySelectorAll()
+ * - element.childNodes
+ * @param {*} value - Value to validate
+ * @returns {boolean} valid
+ */
+const isNodeList = (value) => (value instanceof NodeList);
 
 /**
  * isNull
@@ -145,25 +172,29 @@ const validate = (value, type, identifier, condition = true) => {
 
     // type can be singular (e.g. 'number') or multiple (e.g. 'number|string|boolean')
     types.every((t) => {
-      const validationMethod = (t === 'htmlelement') ? 'isHTMLElement' : `is${stringUtils.stringToCapitalised(t)}`;
+      const validationMethod = t.toLowerCase();
 
-      if (validationMethod === 'isArray') {
+      if (validationMethod === 'array') {
         valid = isArray(value);
-      } else if (validationMethod === 'isBoolean') {
+      } else if (validationMethod === 'boolean') {
         valid = isBoolean(value);
-      } else if (validationMethod === 'isHTMLElement') {
+      } else if (validationMethod === 'htmlcollection') {
+        valid = isHTMLCollection(value);
+      } else if (validationMethod === 'htmlelement') {
         valid = isHTMLElement(value);
-      } else if (validationMethod === 'isNull') {
+      } else if (validationMethod === 'nodelist') {
+        valid = isNodeList(value);
+      } else if (validationMethod === 'null') {
         valid = isNull(value);
-      } else if (validationMethod === 'isNumber') {
+      } else if (validationMethod === 'number') {
         valid = isNumber(value);
-      } else if (validationMethod === 'isObject') {
+      } else if (validationMethod === 'object') {
         valid = isObject(value);
-      } else if (validationMethod === 'isString') {
+      } else if (validationMethod === 'string') {
         valid = isString(value);
-      } else if (validationMethod === 'isString1') {
+      } else if (validationMethod === 'string1') {
         valid = isString1(value);
-      } else if (validationMethod === 'isStringNumber') {
+      } else if (validationMethod === 'stringnumber') {
         valid = isStringNumber(value);
       } else {
         valid = isTypeOf(type, value);
@@ -188,7 +219,9 @@ export default {
   errorMessage,
   isArray,
   isBoolean,
+  isHTMLCollection,
   isHTMLElement,
+  isNodeList,
   isNull,
   isNumber,
   isObject,

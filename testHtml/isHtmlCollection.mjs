@@ -3,121 +3,121 @@ import dtrtValidate from 'dtrt-type-validate'; // eslint-disable-line
 
 QUnit.config.fixture = '<div id="test1" class="test"></div>';
 
-QUnit.module('isHTMLElement: Base Types');
+QUnit.module('isHTMLCollection: Base Types');
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement([]),
+    dtrtValidate.isHTMLCollection([]),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('[]'),
+    dtrtValidate.isHTMLCollection('[]'),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement('true'),
+    dtrtValidate.isHTMLCollection('true'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('false'),
+    dtrtValidate.isHTMLCollection('false'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(true),
+    dtrtValidate.isHTMLCollection(true),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(false),
+    dtrtValidate.isHTMLCollection(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement(null),
+    dtrtValidate.isHTMLCollection(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement(-1),
+    dtrtValidate.isHTMLCollection(-1),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(0),
+    dtrtValidate.isHTMLCollection(0),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(1),
+    dtrtValidate.isHTMLCollection(1),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(2),
+    dtrtValidate.isHTMLCollection(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement({}),
+    dtrtValidate.isHTMLCollection({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement(''),
+    dtrtValidate.isHTMLCollection(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement('foo'),
+    dtrtValidate.isHTMLCollection('foo'),
     false,
   );
 });
 
 QUnit.test('stringNumber', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement('-1'),
+    dtrtValidate.isHTMLCollection('-1'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('0'),
+    dtrtValidate.isHTMLCollection('0'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('1'),
+    dtrtValidate.isHTMLCollection('1'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('2'),
+    dtrtValidate.isHTMLCollection('2'),
     false,
   );
 });
 
-QUnit.module('isHTMLElement: DOM Types');
+QUnit.module('isHTMLCollection: DOM Types');
 
 QUnit.test('createTextNode', (assert) => {
   const fixture = document.createTextNode('Hello world');
 
   assert.equal(
-    dtrtValidate.isHTMLElement(fixture),
+    dtrtValidate.isHTMLCollection(fixture),
     false,
   );
 });
@@ -126,8 +126,8 @@ QUnit.test('querySelector', (assert) => {
   const fixture = document.querySelector('div#test1');
 
   assert.equal(
-    dtrtValidate.isHTMLElement(fixture),
-    true,
+    dtrtValidate.isHTMLCollection(fixture),
+    false,
   );
 });
 
@@ -135,7 +135,7 @@ QUnit.test('querySelectorAll', (assert) => {
   const fixture = document.querySelectorAll('div');
 
   assert.equal(
-    dtrtValidate.isHTMLElement(fixture),
+    dtrtValidate.isHTMLCollection(fixture),
     false,
   );
 });

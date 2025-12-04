@@ -3,121 +3,121 @@ import dtrtValidate from 'dtrt-type-validate'; // eslint-disable-line
 
 QUnit.config.fixture = '<div id="test1" class="test"></div>';
 
-QUnit.module('isHTMLElement: Base Types');
+QUnit.module('isNodeList: Base Types');
 
 QUnit.test('array', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement([]),
+    dtrtValidate.isNodeList([]),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('[]'),
+    dtrtValidate.isNodeList('[]'),
     false,
   );
 });
 
 QUnit.test('boolean', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement('true'),
+    dtrtValidate.isNodeList('true'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('false'),
+    dtrtValidate.isNodeList('false'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(true),
+    dtrtValidate.isNodeList(true),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(false),
+    dtrtValidate.isNodeList(false),
     false,
   );
 });
 
 QUnit.test('null', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement(null),
+    dtrtValidate.isNodeList(null),
     false,
   );
 });
 
 QUnit.test('number', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement(-1),
+    dtrtValidate.isNodeList(-1),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(0),
+    dtrtValidate.isNodeList(0),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(1),
+    dtrtValidate.isNodeList(1),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement(2),
+    dtrtValidate.isNodeList(2),
     false,
   );
 });
 
 QUnit.test('object', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement({}),
+    dtrtValidate.isNodeList({}),
     false,
   );
 });
 
 QUnit.test('string', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement(''),
+    dtrtValidate.isNodeList(''),
     false,
   );
 });
 
 QUnit.test('string1', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement('foo'),
+    dtrtValidate.isNodeList('foo'),
     false,
   );
 });
 
 QUnit.test('stringNumber', (assert) => {
   assert.equal(
-    dtrtValidate.isHTMLElement('-1'),
+    dtrtValidate.isNodeList('-1'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('0'),
+    dtrtValidate.isNodeList('0'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('1'),
+    dtrtValidate.isNodeList('1'),
     false,
   );
 
   assert.equal(
-    dtrtValidate.isHTMLElement('2'),
+    dtrtValidate.isNodeList('2'),
     false,
   );
 });
 
-QUnit.module('isHTMLElement: DOM Types');
+QUnit.module('isNodeList: DOM Types');
 
 QUnit.test('createTextNode', (assert) => {
   const fixture = document.createTextNode('Hello world');
 
   assert.equal(
-    dtrtValidate.isHTMLElement(fixture),
+    dtrtValidate.isNodeList(fixture),
     false,
   );
 });
@@ -126,8 +126,8 @@ QUnit.test('querySelector', (assert) => {
   const fixture = document.querySelector('div#test1');
 
   assert.equal(
-    dtrtValidate.isHTMLElement(fixture),
-    true,
+    dtrtValidate.isNodeList(fixture),
+    false,
   );
 });
 
@@ -135,7 +135,7 @@ QUnit.test('querySelectorAll', (assert) => {
   const fixture = document.querySelectorAll('div');
 
   assert.equal(
-    dtrtValidate.isHTMLElement(fixture),
-    false,
+    dtrtValidate.isNodeList(fixture),
+    true,
   );
 });

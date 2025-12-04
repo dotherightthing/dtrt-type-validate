@@ -2,18 +2,29 @@ import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isNull');
 
-// this type
-
-// all types
-
 QUnit.test('array', (assert) => {
   assert.equal(
     dtrtValidate.isNull([]),
     false,
   );
+
+  assert.equal(
+    dtrtValidate.isNull('[]'),
+    false,
+  );
 });
 
 QUnit.test('boolean', (assert) => {
+  assert.equal(
+    dtrtValidate.isNull('true'),
+    false,
+  );
+
+  assert.equal(
+    dtrtValidate.isNull('false'),
+    false,
+  );
+
   assert.equal(
     dtrtValidate.isNull(true),
     false,
@@ -71,6 +82,28 @@ QUnit.test('string', (assert) => {
 QUnit.test('string1', (assert) => {
   assert.equal(
     dtrtValidate.isNull('foo'),
+    false,
+  );
+});
+
+QUnit.test('stringNumber', (assert) => {
+  assert.equal(
+    dtrtValidate.isNull('-1'),
+    false,
+  );
+
+  assert.equal(
+    dtrtValidate.isNull('0'),
+    false,
+  );
+
+  assert.equal(
+    dtrtValidate.isNull('1'),
+    false,
+  );
+
+  assert.equal(
+    dtrtValidate.isNull('2'),
     false,
   );
 });

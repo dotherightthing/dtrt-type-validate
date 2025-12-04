@@ -2,18 +2,29 @@ import dtrtValidate from '../src/dtrt-type-validate.mjs';
 
 QUnit.module('isStringNumber');
 
-// this type
-
-// all types
-
 QUnit.test('array', (assert) => {
   assert.equal(
     dtrtValidate.isStringNumber([]),
     false,
   );
+
+  assert.equal(
+    dtrtValidate.isStringNumber('[]'),
+    false,
+  );
 });
 
 QUnit.test('boolean', (assert) => {
+  assert.equal(
+    dtrtValidate.isStringNumber('true'),
+    false,
+  );
+
+  assert.equal(
+    dtrtValidate.isStringNumber('false'),
+    false,
+  );
+
   assert.equal(
     dtrtValidate.isStringNumber(true),
     false,
